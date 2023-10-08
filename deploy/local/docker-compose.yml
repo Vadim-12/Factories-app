@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret__123321
+      MONGO_INITDB_DATABASE: main
+    ports:
+      - '27017:27017'
+
+  #backend:
+  #  build: ../../services/server
+  #  env_file:
+  #    - ../../services/server/.env.dev
+  #  restart: always
+  #  depends_on:
+  #    - db
+  #  ports:
+  #    - '5000:5000'
+
+  #frontend:
+  #  build: ../../services/client
+  #  env_file:
+  #    - ../../services/client/.env.dev
+  #  restart: always
+  #  depends_on:
+  #    - backend
+  #  ports:
+  #    - '3000:3000'
